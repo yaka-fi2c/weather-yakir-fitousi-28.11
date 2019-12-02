@@ -1,0 +1,37 @@
+<div class="container">
+  <form [formGroup]="userForm" class="row mt-3 justify-content-center">
+    <mat-form-field class="col-8">
+      <input
+        type="text"
+        placeholder="Enter location (only english letters!)"
+        aria-label="Number"
+        matInput
+        [matAutocomplete]="auto"
+        formControlName="userInput"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let location of locationResults; let i = index"
+          (onSelectionChange)="getCurrentWeather(i)"
+          [value]="location.LocalizedName"
+        >
+          {{ location.LocalizedName }}
+          <small class="ml-1">{{ location.Country.LocalizedName }}</small>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <div class="col-8" *ngIf="!userForm.get('userInput').valid">
+      <div class="alert alert-danger" role="alert">
+        Common! don't be smart ass... <b>English letters only!</b>
+      </div>
+    </div>
+    <div *ngIf="error" class="col-8">
+      <app-erorr [errorMessage]="error"></app-erorr>
+    </div>
+  </form>
+  <div class="row mt-3">
+    <div class="col-12">
+      <app-result-card [weatherData]="weatherData"></app-result-card>
+    </div>
+  </div>
+</div>

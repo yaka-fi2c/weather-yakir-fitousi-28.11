@@ -1,0 +1,16 @@
+<nav class="navbar" [ngClass]="{ 'bg-dark': darkMode }">
+  <h1 class="navbar-brand text-white">Herolo Weather Task</h1>
+  <ul>
+    <button
+      (click)="onChangeTheme()"
+      type="button"
+      class="btn"
+      [ngClass]="{ 'btn-warning': darkMode, 'btn-dark': !darkMode }"
+    >
+      {{ !darkMode ? "Dark Mode" : "Light Mode" }}
+    </button>
+    <li class="d-inline ml-3" *ngFor="let link of links">
+      <a class="text-white" routerLink="/{{ link }}">{{ link }}</a>
+    </li>
+  </ul>
+</nav>

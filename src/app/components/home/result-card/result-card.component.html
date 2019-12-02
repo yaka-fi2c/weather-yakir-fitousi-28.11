@@ -1,0 +1,108 @@
+<div *ngIf="!weatherData.length" class="row justify-content-center">
+  <div class="col-8">
+    <div class="alert alert-info">
+      Search Location first &#x2191;
+    </div>
+  </div>
+</div>
+<div class="col-12" *ngIf="weatherData.length">
+  <div class="row justify-content-center">
+    <div *ngFor="let data of weatherData; let i = index" class="mt-3 w-100">
+      <div
+        *ngFor="let data of default"
+        class="col-12 text-center d-flex flex-column flex-md-row justify-content-around"
+      >
+        <div class="result-info">
+          <span>Current in Tel Aviv:</span>
+          <img
+            src="../../../../assets/icons/{{ data.WeatherIcon }}.png"
+            alt=""
+          />
+          <span *ngIf="metricUnit"
+            >{{ data.Temperature.Metric.Value }} &#8451;</span
+          >
+          <span *ngIf="!metricUnit"
+            >{{ data.Temperature.Imperial.Value }} &#8457;</span
+          >
+        </div>
+        <button
+          type="button"
+          (click)="onAddToFavorites(i)"
+          class="btn mb-3"
+          [ngClass]="{
+            'btn-info': !isInFavorite(),
+            'btn-danger': isInFavorite()
+          }"
+        >
+          {{ isInFavorite() ? "Remove From Favorites" : "Add To Favorites" }}
+        </button>
+      </div>
+      <div class="result-card">
+        <button (click)="metricUnit = !metricUnit" class="btn btn-info mb-3">
+          {{ metricUnit ? "Show in Fahrenheit" : "Show in Celsius" }}
+        </button>
+        <div
+          *ngIf="locationAdded"
+          class="alert alert-success mt-3"
+          role="alert"
+        >
+          Location added successfuly!
+        </div>
+        <div class="results-info">
+          <h2 class="text-bold">{{ data.name }}</h2>
+          <span>{{ data.date | date }}</span>
+          <img
+            class="mt-3 mb-3"
+            src="../../../../assets/icons/{{ data.icon }}.png"
+            alt="{{ data.weatherText }}"
+          />
+          <span *ngIf="metricUnit"
+            >Temperature: {{ data.currentWeather.celsius }}&#8451;</span
+          >
+          <span *ngIf="!metricUnit"
+            >Temperature: {{ data.currentWeather.farenhit }}&#8457;</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center justify-content-md-between mt-5 mb-5">
+    <div *ngFor="let data of weatherData[0].forecast">
+      <div class="result-card mb-3">
+        <div class="results-info">
+          <h2 class="text-bold">{{ data.Date | date }}</h2>
+          <div *ngIf="data.IsDayTime" class="mt-3 mb-3">
+            <img
+              src="../../../../assets/icons/{{ data.Day.Icon }}.png"
+              alt="weather icon"
+            />
+          </div>
+          <div *ngIf="!data.IsDayTime" class="mt-3 mb-3">
+            <img
+              src="../../../../assets/icons/{{ data.Night.Icon }}.png"
+              alt="weather icon"
+            />
+          </div>
+          <span *ngIf="metricUnit"
+            >Maximum Temp:
+            {{
+              ((data.Temperature.Maximum.Value - 32) * 5) / 9 | number: "1.0-0"
+            }}&#8451;</span
+          >
+          <span *ngIf="metricUnit"
+            >Minimum Temp:
+            {{
+              ((data.Temperature.Minimum.Value - 32) * 5) / 9 | number: "1.0-0"
+            }}&#8451;</span
+          >
+          <span *ngIf="!metricUnit"
+            >Maximum Temp: {{ data.Temperature.Maximum.Value }}&#8457;</span
+          >
+          <span *ngIf="!metricUnit"
+            >Minimum Temp: {{ data.Temperature.Minimum.Value }}&#8457;</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

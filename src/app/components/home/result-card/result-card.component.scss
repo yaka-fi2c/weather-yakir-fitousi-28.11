@@ -1,0 +1,28 @@
+.result-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .results-info {
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgb(94, 204, 255);
+    box-shadow: 0px 2px 5px 7px rgba(0, 0, 0, 0.2), 1px 3px 9px rgba(0, 0, 0, 0.5);
+  }
+  }
+
+  img {
+    width: 100px;
+  }
+
+
+.result-card-default {
+  display: flex;
+  justify-content: space-around;
+}
+
+

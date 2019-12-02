@@ -1,0 +1,23 @@
+<div class="container">
+  <div
+    *ngIf="favorites.length"
+    class="row mt-5 mb-5 justify-content-center justify-content-lg-around"
+  >
+    <button
+      *ngFor="let data of favorites; let i = index"
+      class="align-self-center favorite-info mb-5"
+      (click)="onFavoriteSelection(i)"
+    >
+      <p>{{ data.name }}</p>
+      <h2>{{ data.currentWeather.celsius }} &#8451;</h2>
+      <img src="../../../assets/icons/{{ data.icon }}.png" alt="weather text" />
+    </button>
+  </div>
+  <div *ngIf="!favorites.length" class="row justify-content-center mt-5">
+    <div class="col-8">
+      <div class="alert alert-warning" role="alert">
+        No favorites were saved!
+      </div>
+    </div>
+  </div>
+</div>
