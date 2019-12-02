@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const app = express();
 
-app.use(express.static(__dirname + '/dist/weater-app-final'));
+app.use(express.static(__dirname + '/dist/weater-app-final/'));
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, '/dist/weater-app-final/index.html'));
 });
