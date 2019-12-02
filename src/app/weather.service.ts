@@ -13,10 +13,10 @@ import { Subject, Observable } from 'rxjs';
 export class WeatherService {
 
   apikey = 'WF8yKAXUhpOFgcbVfrttWKGBpcM9oakt';
-  autoCompleteEndPoint = `http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${this.apikey}&q=`;
-  currentWeatherEndPoint = 'http://dataservice.accuweather.com/currentconditions/v1/';
-  forecastEndPoint = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/';
-  defauleLocationEndPoint = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${this.apikey}&q=32.109333%2C34.855499`;
+  autoCompleteEndPoint = `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${this.apikey}&q=`;
+  currentWeatherEndPoint = 'https://dataservice.accuweather.com/currentconditions/v1/';
+  forecastEndPoint = 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/';
+  defauleLocationEndPoint = `https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${this.apikey}&q=32.109333%2C34.855499`;
 
   favorites: IWeatherData[] = [];
   changeTheme: Subject<boolean> = new Subject();
