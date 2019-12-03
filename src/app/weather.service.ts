@@ -12,7 +12,7 @@ import { Subject, Observable } from 'rxjs';
 })
 export class WeatherService {
 
-  apikey = 'WF8yKAXUhpOFgcbVfrttWKGBpcM9oakt';
+  apikey = 'rrOw83N8pY2KUSwouJ0NZsWnP1sWw0Xu';
   autoCompleteEndPoint = `https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${this.apikey}&q=`;
   currentWeatherEndPoint = 'https://dataservice.accuweather.com/currentconditions/v1/';
   forecastEndPoint = 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/';
