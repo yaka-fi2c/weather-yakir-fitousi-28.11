@@ -18,9 +18,9 @@ import { TrimPipe } from './trim.pipe';
 import { ErorrComponent } from './components/erorr/erorr.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'Favorites', component: FavoritesComponent },
-  { path: 'Home', component: HomeComponent }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'favorites', component: FavoritesComponent },
+  { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({

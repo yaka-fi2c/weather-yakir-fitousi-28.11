@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar\" [ngClass]=\"{ 'bg-dark': darkMode }\">\n  <h1 class=\"navbar-brand text-white\">Herolo Weather Task</h1>\n  <ul>\n    <button\n      (click)=\"onChangeTheme()\"\n      type=\"button\"\n      class=\"btn\"\n      [ngClass]=\"{ 'btn-warning': darkMode, 'btn-dark': !darkMode }\"\n    >\n      {{ !darkMode ? \"Dark Mode\" : \"Light Mode\" }}\n    </button>\n    <li class=\"d-inline ml-3\" *ngFor=\"let link of links\">\n      <a class=\"text-white\" routerLink=\"/{{ link }}\">{{ link }}</a>\n    </li>\n  </ul>\n</nav>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar\" [ngClass]=\"{ 'bg-dark': darkMode }\">\n  <h1 class=\"navbar-brand text-white\">Herolo Weather Task</h1>\n  <ul>\n    <button\n      (click)=\"onChangeTheme()\"\n      type=\"button\"\n      class=\"btn\"\n      [ngClass]=\"{ 'btn-warning': darkMode, 'btn-dark': !darkMode }\"\n    >\n      {{ !darkMode ? \"Dark Mode\" : \"Light Mode\" }}\n    </button>\n    <li class=\"d-inline ml-3\">\n      <a routerLinkActive=\"bg-info\" class=\"text-white btn\" routerLink=\"/home\">Home</a>\n    </li>\n    <li class=\"d-inline ml-3\">\n      <a routerLinkActive=\"bg-info\" class=\"text-white btn\" routerLink=\"/favorites\">Favorites</a>\n    </li>\n  </ul>\n</nav>\n");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <form [formGroup]=\"userForm\" class=\"row mt-3 justify-content-center\">\n    <mat-form-field class=\"col-8\">\n      <input\n        type=\"text\"\n        placeholder=\"Enter location (only english letters!)\"\n        aria-label=\"Number\"\n        matInput\n        [matAutocomplete]=\"auto\"\n        formControlName=\"userInput\"\n      />\n      <mat-autocomplete #auto=\"matAutocomplete\">\n        <mat-option\n          *ngFor=\"let location of locationResults; let i = index\"\n          (onSelectionChange)=\"getCurrentWeather(i)\"\n          [value]=\"location.LocalizedName\"\n        >\n          {{ location.LocalizedName }}\n          <small class=\"ml-1\">{{ location.Country.LocalizedName }}</small>\n        </mat-option>\n      </mat-autocomplete>\n    </mat-form-field>\n    <div class=\"col-8\" *ngIf=\"!userForm.get('userInput').valid\">\n      <div class=\"alert alert-danger\" role=\"alert\">\n        Common! don't be smart ass... <b>English letters only!</b>\n      </div>\n    </div>\n    <div *ngIf=\"error\" class=\"col-8\">\n      <app-erorr [errorMessage]=\"error\"></app-erorr>\n    </div>\n  </form>\n  <div class=\"row mt-3\">\n    <div class=\"col-12\">\n      <app-result-card [weatherData]=\"weatherData\"></app-result-card>\n    </div>\n  </div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\n  <form [formGroup]=\"userForm\" class=\"row mt-3 justify-content-center\">\n    <mat-form-field class=\"col-8\">\n      <input\n        type=\"text\"\n        placeholder=\"Enter location (only english letters!)\"\n        aria-label=\"Number\"\n        matInput\n        [matAutocomplete]=\"auto\"\n        formControlName=\"userInput\"\n        autofocus\n      />\n      <mat-autocomplete #auto=\"matAutocomplete\">\n        <mat-option\n          *ngFor=\"let location of locationResults; let i = index\"\n          (onSelectionChange)=\"getCurrentWeather(i)\"\n          [value]=\"location.LocalizedName\"\n        >\n          {{ location.LocalizedName }}\n          <small class=\"ml-1\">{{ location.Country.LocalizedName }}</small>\n        </mat-option>\n      </mat-autocomplete>\n    </mat-form-field>\n    <div class=\"col-8\" *ngIf=\"!userForm.get('userInput').valid\">\n      <div class=\"alert alert-danger\" role=\"alert\">\n        Common! don't be smart ass... <b>English letters only!</b>\n      </div>\n    </div>\n    <div *ngIf=\"error\" class=\"col-8\">\n      <app-erorr [errorMessage]=\"error\"></app-erorr>\n    </div>\n  </form>\n  <div class=\"row mt-3\">\n    <div class=\"col-12\">\n      <app-result-card [weatherData]=\"weatherData\"></app-result-card>\n    </div>\n  </div>\n</div>\n");
 
 /***/ }),
 
@@ -473,9 +473,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"] },
-    { path: 'Favorites', component: _components_favorites_favorites_component__WEBPACK_IMPORTED_MODULE_10__["FavoritesComponent"] },
-    { path: 'Home', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"] }
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'favorites', component: _components_favorites_favorites_component__WEBPACK_IMPORTED_MODULE_10__["FavoritesComponent"] },
+    { path: 'home', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"] }
 ];
 let AppModule = class AppModule {
 };
@@ -682,7 +682,7 @@ FooterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("nav {\n  background: #7846a1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy95YWtpcmZpdG91c2kvRGVza3RvcC9DT0RFL3dlYXRoZXItYXBwLWZpbmFsL3NyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxtQkFBQTtBQ0NGIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsibmF2IHtcbiAgYmFja2dyb3VuZDogcmdiKDEyMCwgNzAsIDE2MSk7XG59XG5cbiIsIm5hdiB7XG4gIGJhY2tncm91bmQ6ICM3ODQ2YTE7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("nav {\n  background: #7846a1;\n}\n\n.is-active {\n  color: yellow;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy95YWtpcmZpdG91c2kvRGVza3RvcC9DT0RFL3dlYXRoZXItYXBwLWZpbmFsL3NyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9jb21wb25lbnRzL2hlYWRlci9oZWFkZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxtQkFBQTtBQ0NGOztBRENBO0VBQ0UsYUFBQTtBQ0VGIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsibmF2IHtcbiAgYmFja2dyb3VuZDogcmdiKDEyMCwgNzAsIDE2MSk7XG59XG4uaXMtYWN0aXZlIHtcbiAgY29sb3I6IHllbGxvdztcbn1cbiIsIm5hdiB7XG4gIGJhY2tncm91bmQ6ICM3ODQ2YTE7XG59XG5cbi5pcy1hY3RpdmUge1xuICBjb2xvcjogeWVsbG93O1xufSJdfQ== */");
 
 /***/ }),
 

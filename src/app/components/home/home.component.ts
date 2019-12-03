@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   weatherData: IWeatherData[] = [];
   error: string;
 
-
   constructor(private weatherService: WeatherService, private fb: FormBuilder) {
     this.userForm = this.fb.group({
       userInput: [null, [Validators.pattern(/^[a-zA-Z][a-zA-Z\s]*$/)]]

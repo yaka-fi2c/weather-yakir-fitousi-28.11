@@ -9,8 +9,11 @@
     >
       {{ !darkMode ? "Dark Mode" : "Light Mode" }}
     </button>
-    <li class="d-inline ml-3" *ngFor="let link of links">
-      <a class="text-white" routerLink="/{{ link }}">{{ link }}</a>
+    <li class="d-inline ml-3">
+      <a routerLinkActive="bg-info" class="text-white btn" routerLink="/home">Home</a>
+    </li>
+    <li class="d-inline ml-3">
+      <a routerLinkActive="bg-info" class="text-white btn" routerLink="/favorites">Favorites</a>
     </li>
   </ul>
 </nav>
