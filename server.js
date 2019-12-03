@@ -5,7 +5,7 @@ const proxy =require('http-proxy-middleware');
 
 app.use(
   'dataservice.accuweather.com/',
-  proxy('**',{ target: 'localhost:8080', changeOrigin: true })
+  proxy('**',{ target: 'https://whispering-scrubland-90846.herokuapp.com/', changeOrigin: true })
 );
 app.use(express.static(__dirname + '/dist/weater-app-final/'));
 app.get('/*', function (req, res) {
